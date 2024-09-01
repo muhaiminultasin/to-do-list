@@ -30,10 +30,30 @@ addBtn.addEventListener("click", (e) => {
 
 list.addEventListener("click", (e) => {
     let target = e.target;
-    if(target.id == "delete") {
-        target.parentElement.parentElement.remove();
-        count.innerHTML = `Total : ${total = total -1}`;
-    } else if(target.id == "done") {
-        target.parentElement.parentElement.style = "text-decoration-line: line-through;";
+
+    switch(target.id) {
+        case "delete":
+            target.parentElement.parentElement.remove();
+            count.innerHTML = `Total : ${total = total -1}`;  
+            break;
+        case "done" :
+            target.parentElement.parentElement.style = "text-decoration-line: line-through;";
+            break;
+        case "edit" :
+            inputBox.value = document.querySelector("#item-text").innerText ;
+            target.parentElement.parentElement.remove();
+            count.innerHTML = `Total : ${total = total -1}`;
+
     }
-})
+
+
+    // if(target.id == "delete") {
+    //     target.parentElement.parentElement.remove();
+    //     count.innerHTML = `Total : ${total = total -1}`;
+    // } else if(target.id == "done") {
+    //     target.parentElement.parentElement.style = "text-decoration-line: line-through;";
+    // } else{
+
+    // }
+});
+
